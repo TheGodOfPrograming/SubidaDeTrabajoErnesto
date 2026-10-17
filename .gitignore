@@ -1,0 +1,8 @@
+# Archivos compilados
+*.class
+build/
+dist/
+
+# Configuraciones privadas de NetBeans que rompen todo en otros PCs
+nbproject/private/
+nbproject/project.properties

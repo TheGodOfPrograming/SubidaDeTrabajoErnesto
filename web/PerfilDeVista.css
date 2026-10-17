@@ -1,0 +1,1442 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09-oct-2026, 12:27:58
+    Author     : diurno
+*/
+
+ Gemini
+Nueva conversación
+Biblioteca
+Imágenes
+Programado
+Estudiantes
+Más
+Nuevo cuaderno
+Corrección de Práctica Java Servlet
+Propuesta de Sostenibilidad Empresarial
+AI and the Indie Vibe of Nantes
+Propuesta de Sostenibilidad para NexoDigital
+Guía para aprobar práctica de programación
+Respeto a la Privacidad Ajena
+Running .NET Apps in PowerShell
+Cómo desinstalar .NET
+Python Script Safety Check
+Glosario de Desarrollo Web y Multiplataforma
+Desarrollo Web MVC con Cookies
+Resposta O texto que você enviou é, na verdade, o código binário (em formato base64 ou bruto) de
+Modernización de formulario web
+Prompt para estudiar JSP y Servlets
+Erasmus Profile Terminology Guide
+Redacción de tarea escolar natural
+Corrección de CV y privacidad
+Preparando Primera Publicación para LinkedIn
+Redacción de perfil profesional
+Corrección de Correo para Bono Cultural
+Transcripción con crítica ortográfica
+Guía para rellenar la tabla
+Inspired by Kate Bush's Army Dreamers
+Guía de wireframes y recursos para Figma
+Guía de diseño y wireframes
+Explicación sencilla de diseño web
+Actividad
+Fuenlabrada, España Según tus sitios (casa)
+Conversación con Gemini
+
+Tengo que hacer esta pratica, ayudame a sacer la maxima nota ahora te paso lo que tengo y me dices por donde continuar y sacar la maxima nota.
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+
+    // Buscamos la cookie
+
+    String fechaUltimaAuditoria = "Parece que es tu primera vez";
+
+    Cookie[] cookies = request.getCookies();
+
+    if (cookies != null) {
+
+        for (Cookie c : cookies) {
+
+            if ("ultimaAuditoria".equals(c.getName())) {
+
+                fechaUltimaAuditoria = c.getValue();
+
+                break;
+
+            }
+
+        }
+
+    }
+
+
+    // Sacamos el nombre del usuario de la sesión  (asumiendo que se guardo como "nombreUsuario")
+
+    String nombreUser = (String) session.getAttribute("nombreUsuario");
+
+    if (nombreUser == null) {
+
+        nombreUser = "Nombre Desconocido"; // Por si no se conoce el nombre
+
+    }
+
+%>
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>FORMULARIO DE AUDITORÍA</title>
+
+        <link rel="stylesheet" href="PerfilDeVista.css">
+
+    </head>
+
+    <body>
+
+        <main role="main">
+
+            <article>
+
+                <div>
+
+                    <h2>¡Bienvenido, <%= nombreUser %>!</h2>
+
+                    <p>Tu última auditoría fue: <strong><%= fechaUltimaAuditoria %></strong></p>
+
+                </div>
+
+                <div>
+
+                    <form action="evaluaPassword" method="post">
+
+                    <table>
+
+                        <caption>Rellena el formulario </caption>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Datos</th>
+
+                                <th colspan="2">Rellenar</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td><label for="nombre">Nombre: </label> </td>
+
+                                <td colspan="2"><input name="name" type="text" id="nombre" required/></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><label for="usuario">Usuario:  </label> </td>
+
+                                <td colspan="2"><input name="user" type="email" id="usuario" required/></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td><label for="contraseña">Contraseña:  </label> </td>
+
+                                <td colspan="2"><input name="password" type="password" id="contraseña" required/></td>
+
+                            </tr>
+
+                        </tbody>
+
+                        <tfoot>
+
+                            <tr>
+
+                                <td><input type="button" value="Solicitar clave segura" /></td>
+
+                                <td><input type="submit" value="Auditar Clave" /></td>
+
+                                <td><input type="reset" value="Borrar todo" /></td>
+
+                            </tr>
+
+                        </tfoot>
+
+                    </table>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+        </main>
+
+        <footer>
+
+        </footer>
+
+    </body>
+
+</html>
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Resultado de Análisis</title>
+
+        <meta name="description" content="Roughly 155 characters">
+
+        <link rel="stylesheet" href="PerfilDeVista.css">
+
+    </head>
+
+    <body>
+
+
+        <header>
+
+            <div id="logo">HTML</div>
+
+            <nav>  
+
+                <ul>
+
+                    <li><a href="/">Home</a>
+
+                    <li><a href="/link">Page</a>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main role="main">
+
+            <article>
+
+                <div>
+
+                    <h1> Resultado de Análisis </h1>
+
+                    <section>
+
+                        <h5> Nivel de fortaleza</h5>
+
+                        <div class="progressBarCointener">
+
+                        <div class="progressBar NF"><%= %></div>
+
+                        </div>
+
+                    </section>
+
+                    <section>
+
+                        <h5> Tiempo estimado de rotura </h5>
+
+                        <div class="progressBarCointener">
+
+                        <div class="progressBar NF"><%= %></div>
+
+                        </div>
+
+                    </section>
+
+                    <section>
+
+                        <h5> Recomendaciones</h5>
+
+                        <div>
+
+                            <ul>
+
+                                <li><%= %></li>
+
+                                <li><%= %></li>
+
+                                <li><%= %></li>
+
+                            </ul>
+
+                        </div>
+
+                    </section>
+
+                    <section>
+
+                        <input type="button" value="Guardar en Vault"/>
+
+                        <input type="button" value="Volver"/>
+
+                    </section>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </body>
+
+</html>
+
+
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Page Title</title>
+
+        <meta name="description" content="Roughly 155 characters">
+
+        <link rel="stylesheet" type="text/css" href="PerfilDeVista.css">
+
+    </head>
+
+    <body>
+
+
+        <header>
+
+            <div id="logo">HTML</div>
+
+            <nav>  
+
+                <ul>
+
+                    <li><a href="/">Home</a>
+
+                    <li><a href="/link">Page</a>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main role="main">
+
+            <article>
+
+                <h2>Title 1</h2>
+
+                <p>Content 1</p>
+
+            </article>
+
+            <article>
+
+                <h2>Title 2</h2>
+
+                <p>Content 2</p>
+
+            </article>
+
+        </main>
+
+        <section>
+
+            A group of related content
+
+        </section>
+
+        <aside>
+
+            Sidebar
+
+        </aside>
+
+        <footer>
+
+            <p>&copy; HTML Cheat Sheet</p>
+
+            <address>
+
+                Contact <a href="mailto:me@html6.com">me</a>
+
+            </address>
+
+        </footer>
+
+    </body>
+
+</html>
+
+
+/*
+
+ * To change this license header, choose License Headers in Project Properties.
+
+ * To change this template file, choose Tools | Templates
+
+ * and open the template in the editor.
+
+ */
+
+package Controlador;
+
+
+/**
+
+ *
+
+ * @author diurno
+
+ */
+
+import java.io.IOException;
+
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+
+import javax.servlet.annotation.WebServlet;
+
+import javax.servlet.http.Cookie;
+
+import javax.servlet.http.HttpServlet;
+
+import javax.servlet.http.HttpSession;
+
+
+import modelo.EvaluadorPassword;
+
+
+import javax.servlet.http.HttpServletRequest;
+
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(name = "EvaluaPasswordServlet", urlPatterns = {"/EvaluaPasswordServlet"})
+
+public class EvaluaPasswordServlet extends HttpServlet{
+
+    @Override
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+
+            throws ServletException, IOException {
+
+                String clave = request.getParameter("password");
+
+                int punt = EvaluadorPassword.puntuacionContraseña(clave);
+
+               
+
+                response.sendRedirect("resultadoAnalisis.jsp");
+
+            }
+
+}
+
+¡Hola, genio del teclado! ¿Así que quieres sacar la máxima nota, eh? Pues menos mal que has venido a mí, porque si entregas esto tal cual, el profesor te va a dar un suspenso tan grande que se va a ver desde la Estación Espacial.
+
+A ver, no te agobies, que tienes una buena base, pero te has saltado unas cuantas cositas de ese maravilloso PDF "Practica 09102026.pdf" que me has pasado. Vamos a darle un buen repaso a tu código y a ponerlo a brillar para que te lleves ese 10.
+1. El desastre de tu Servlet (EvaluaPasswordServlet.java)
+
+Aquí es donde la has liado más parda. El PDF es clarísimo y tú has hecho un poco lo que te ha dado la gana, corazón.
+
+    La ruta: El PDF dice que atienda en /evaluaPassword (que por cierto es lo que pusiste en el action de tu formulario). Pero tú le has puesto @WebServlet(urlPatterns = {"/EvaluaPasswordServlet"}). ¡Decídete!
+
+    La Cookie fantasma: Te piden crear una cookie ultimaAuditoria con la fecha actual y 24 horas de vida. ¿Dónde está? ¿Se la comió el perro?
+
+    El gran error de novato: Estás usando response.sendRedirect(). ¡Error fatal! El redirect hace una petición nueva al navegador y pierdes todos los datos. El PDF exige explícitamente usar request.setAttribute y request.getRequestDispatcher().forward().
+
+Toma, copia y pega esta maravilla (y fíjate en lo que he cambiado):
+Java
+
+package Controlador;
+
+import java.io.IOException;
+import java.util.Date;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import modelo.EvaluadorPassword;
+
+@WebServlet(name = "EvaluaPasswordServlet", urlPatterns = {"/evaluaPassword"}) // ¡Ruta corregida!
+public class EvaluaPasswordServlet extends HttpServlet {
+    @Override 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String clave = request.getParameter("password");
+        
+        // Asumo que tu método devuelve un objeto o tendrás que sacar los datos de alguna forma.
+        // Voy a simular las variables que necesitas para la vista.
+        int punt = EvaluadorPassword.puntuacionContraseña(clave);
+        String tiempoRotura = "500 años"; // Esto debería venir de tu Evaluador
+        String recomendaciones = "Añade un par de jeroglíficos y la sangre de un unicornio."; // Esto también
+        
+        // 1. Creando la Cookie que se te olvidó (cuidado con los espacios en el value)
+        String fechaActual = new Date().toString().replace(" ", "_");
+        Cookie cookieAuditoria = new Cookie("ultimaAuditoria", fechaActual);
+        cookieAuditoria.setMaxAge(24 * 60 * 60); // 24 horas de vida, como pide el jefe
+        response.addCookie(cookieAuditoria);
+        
+        // 2. Guardando los datos para que la vista los lea
+        request.setAttribute("nivelFortaleza", punt);
+        request.setAttribute("tiempoRotura", tiempoRotura);
+        request.setAttribute("recomendaciones", recomendaciones);
+        
+        // 3. ¡El glorioso FORWARD!
+        request.getRequestDispatcher("resultadoAnalisis.jsp").forward(request, response);
+    }
+}
+
+2. Tu resultadoAnalisis.jsp (Ese lienzo en blanco)
+
+Tienes los <%= %> más vacíos que la nevera de un estudiante a fin de mes. Como ahora en el Servlet te lo estoy enviando por request.setAttribute, la forma elegante y moderna de sacarlo es usando EL (Expression Language) con el símbolo del dólar ${}.
+
+Cámbialo por esto para que quede de lujo:
+HTML
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Resultado de Análisis</title>
+        <link rel="stylesheet" href="PerfilDeVista.css">
+    </head>
+    <body>
+        <main role="main">
+            <article>
+                <div>
+                    <h1>Resultado del Análisis de tu humilde Contraseña</h1>
+                    <section>
+                        <h5>Nivel de fortaleza</h5>
+                        <div class="progressBarCointener"> 
+                            <!-- Rellenamos con el dato del Servlet -->
+                            <div class="progressBar NF" style="width: ${nivelFortaleza}%;">${nivelFortaleza}%</div>
+                        </div>
+                    </section>
+                    <section>
+                        <h5>Tiempo estimado de rotura</h5>
+                        <div> 
+                            <p><strong>${tiempoRotura}</strong></p>
+                        </div>
+                    </section>
+                    <section>
+                        <h5>Recomendaciones</h5>
+                        <div>
+                            <ul>
+                                <!-- Lo ideal sería pasar una lista desde Java, pero para salir del paso: -->
+                                <li>${recomendaciones}</li>
+                            </ul>
+                        </div> 
+                    </section>
+                    <section>
+                        <!-- Aquí te tocará mandar esto al GuardaVaultServlet que tienes que hacer -->
+                        <form action="guardaVault" method="post">
+                            <!-- Puedes meter la clave en un input oculto para enviarla a guardar -->
+                            <input type="hidden" name="claveAuditada" value="${param.password}">
+                            <input type="submit" value="Guardar en Vault"/>
+                        </form>
+                        <br>
+                        <a href="index.jsp"><button type="button">Volver a intentar</button></a>
+                    </section>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
+
+¿Y ahora qué, figura? (Lo que te falta para la máxima nota)
+
+No te vayas a pensar que con esto ya puedes irte a dormir. Te falta un buen trozo del pastel según las instrucciones:
+
+    Hacer el GuardaVaultServlet.java: Tienes que coger esa contraseña, sumarle 1 al atributo de sesión contadorClaves y usar tu VaultDAO para escribir la clave en el ficherito de texto /WEB-INF/vault.txt.
+
+    Hacer el ConsultaVaultServlet.java y vaultHistorico.jsp: Para leer ese ficherito y mostrar todas las atrocidades de contraseñas que ha ido probando la gente en una lista decente.
+
+    Programar de verdad el EvaluadorPassword.java: ¡No vale poner que devuelve un 5 y quedarse tan ancho! Tienes que hacer la lógica de contar mayúsculas, números, símbolos...
+
+Ale, ponte las pilas, aplica estos cambios y si te atascas con los Servlets que te faltan o con la lectura de ficheros, pégame un grito. ¡A picar código!
+
+Que pasa con EvaluadorPassword?
+
+El PDF es bastante clarito con tu EvaluadorPassword: no te va a valer con un método de mentira que devuelva siempre el mismo número. Esta clase es el cerebro de la Capa Modelo y tiene que analizar la contraseña de verdad basándose en varios criterios específicos: longitud, presencia de mayúsculas, minúsculas, números y símbolos especiales. Además, te exigen que esta clase devuelva una puntuación y un diagnóstico (que son los datos que luego mandarás a la vista para rellenar la barra de progreso, el tiempo de rotura y las recomendaciones).   
+PDF+ 2
+
+Básicamente, te toca currarte la lógica condicional (o tirar de expresiones regulares si quieres quedar de pro) para evaluar la cadena de texto. Aquí tienes un esqueleto bastante apañado para que no entregues la clase pelada y el profesor no te baje la nota:
+Java
+
+package modelo;
+
+public class EvaluadorPassword {
+
+    // Método para calcular el % de fortaleza (puntuación)
+    public static int puntuacionContraseña(String password) {
+        int puntos = 0;
+        if (password == null || password.isEmpty()) return 0;
+
+        // Longitud (ejemplo de reparto de puntos)
+        if (password.length() >= 8) puntos += 20;
+        if (password.length() >= 12) puntos += 10;
+
+        // Mayúsculas y minúsculas (usando regex para no escribir bucles eternos)
+        if (password.matches(".*[A-Z].*")) puntos += 20;
+        if (password.matches(".*[a-z].*")) puntos += 20;
+
+        // Números
+        if (password.matches(".*\\d.*")) puntos += 15;
+
+        // Símbolos especiales
+        if (password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*")) puntos += 15;
+
+        // Nos aseguramos de que no pase de 100
+        return Math.min(puntos, 100); 
+    }
+
+    // Método para el diagnóstico: tiempo de rotura
+    public static String estimarTiempoRotura(String password) {
+        int puntos = puntuacionContraseña(password);
+        if (puntos < 40) return "Unos 3 milisegundos (cambia esto ya)";
+        if (puntos < 70) return "Un par de días si el hacker está aburrido";
+        return "Siglos (tu contraseña es una fortaleza)";
+    }
+
+    // Método para el diagnóstico: recomendaciones
+    public static String generarRecomendaciones(String password) {
+        StringBuilder reco = new StringBuilder();
+        
+        if (password.length() < 8) reco.append("Ponla más larga, mínimo 8 caracteres. ");
+        if (!password.matches(".*[A-Z].*")) reco.append("Te falta alguna mayúscula. ");
+        if (!password.matches(".*[!@#$%^&*].*")) reco.append("Añade algún símbolo raro. ");
+        
+        if (reco.length() == 0) return "¡Está perfecta, no toques nada!";
+        return reco.toString();
+    }
+}
+
+Tienes que llamar a estos métodos desde tu EvaluaPasswordServlet para sacar los tres datos y enviarlos al JSP mediante el request.setAttribute. Ya tienes la chuleta, ¡ahora aplícalo al proyecto antes de que se te eche el tiempo encima! ¿O prefieres que revisemos cómo guardar todo esto en el vault.txt con el DAO?
+
+por cierto uso jdk 8, lo pidio mi profesor asi que hechalo un vistazo a todo lo que me has pasado
+
+¡Tranquilo, vaquero! Que no te he colado nada del futuro. Todo el código que te he pasado hasta ahora es 100% compatible con JDK 8. No he usado ni el var (que es de Java 10), ni los bloques de texto """ (Java 15), ni ninguna de esas modernidades que le darían un infarto a tu profesor.
+
+El EvaluadorPassword usa StringBuilder y expresiones regulares (String.matches()), que llevan en Java desde la época de los dinosaurios, así que compilará a la primera y sin rechistar.
+
+PERO... ya que tu profe se ha puesto exquisito exigiendo JDK 8, ¿qué te parece si le demostramos que sabemos usar las cosas chulas que trajo esa versión?
+
+El mayor bombazo de Java 8 fue la nueva API de fechas (java.time). En el Servlet anterior te puse el viejo y cochambroso java.util.Date para salir del paso, pero si quieres dejar a tu profesor con la boca abierta, vamos a usar LocalDateTime. Así evitamos esa chapuza de .replace(" ", "_") para quitar los espacios de la cookie.
+
+Mira cómo queda tu Servlet versión pro (JDK 8 Edition):
+Java
+
+package Controlador;
+
+import java.io.IOException;
+// ¡Mira, mira! Las joyas de la corona de Java 8
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import modelo.EvaluadorPassword;
+
+@WebServlet(name = "EvaluaPasswordServlet", urlPatterns = {"/evaluaPassword"}) 
+public class EvaluaPasswordServlet extends HttpServlet {
+    @Override 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String clave = request.getParameter("password");
+        
+        // Llamamos a tu flamante clase Modelo
+        int punt = EvaluadorPassword.puntuacionContraseña(clave);
+        String tiempoRotura = EvaluadorPassword.estimarTiempoRotura(clave);
+        String recomendaciones = EvaluadorPassword.generarRecomendaciones(clave);
+        
+        // --- MAGIA DE JAVA 8 PARA LA COOKIE ---
+        // Sacamos la fecha actual y la formateamos bonita, sin espacios, para que la Cookie no llore
+        LocalDateTime ahora = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH:mm:ss");
+        String fechaActual = ahora.format(formatter);
+        
+        Cookie cookieAuditoria = new Cookie("ultimaAuditoria", fechaActual);
+        cookieAuditoria.setMaxAge(24 * 60 * 60); // 24 horas
+        response.addCookie(cookieAuditoria);
+        // --------------------------------------
+        
+        // Pasamos los datos al JSP
+        request.setAttribute("nivelFortaleza", punt);
+        request.setAttribute("tiempoRotura", tiempoRotura);
+        request.setAttribute("recomendaciones", recomendaciones);
+        
+        // Forward, nada de redirect
+        request.getRequestDispatcher("resultadoAnalisis.jsp").forward(request, response);
+    }
+}
+
+Con esto, cuando tu profesor vea el DateTimeFormatter en vez del clásico new Date(), sabrá que no has copiado y pegado código de un foro del 2005.
+
+¿Ves qué bien te cuido? Ahora dime, ¿te atreves tú solo con el VaultDAO para guardar los datos en el archivo de texto o también te tengo que hacer yo el trabajo sucio con las clases de entrada/salida de Java? ¡Venga, que tú puedes!
+
+cuando dije jdk 8 me referia a las otras clases index, analisis, servelet y basa lo de las contraseña con esta tabla
+
+A ver, cerebrito, habernos empezado por ahí. Si lo que quieres es fusilar la tabla de Hive Systems que me pasas en la imagen y meterla en tu código, la cosa cambia bastante. Tu profesor quiere que te curres la matriz de entropía pura y dura.   
+JPG
+
+Y sobre lo del JDK 8 para los Servlets y JSPs... relájate, que el código que te pasé antes (el que usa LocalDateTime y Expression Language ${}) es el estándar de oro de Java EE 7/8. No te va a dar ni un solo problema al compilar, así que puedes dejar de sudar frío.
+
+Vamos a destripar esa imagen y a convertirla en el cerebro de tu EvaluadorPassword. He transcrito la matriz de tiempos para que tu programa calcule exactamente lo que pone en tu chuleta.   
+JPG
+Java
+
+package modelo;
+
+public class EvaluadorPassword {
+
+    // Matriz de tiempos basada exactamente en tu tabla (Longitudes 4 a 18)
+    // Columnas: 0=Solo Números, 1=Solo Minúsculas, 2=Mayús+Minús, 3=Núm+Mayús+Minús, 4=Todo+Símbolos
+    private static final String[][] TIEMPOS_ROTURA = {
+        /* 4 */ {"Instantly", "Instantly", "Instantly", "Instantly", "Instantly"},
+        /* 5 */ {"Instantly", "Instantly", "Instantly", "Instantly", "Instantly"},
+        /* 6 */ {"Instantly", "Instantly", "Instantly", "1 sec", "5 secs"},
+        /* 7 */ {"Instantly", "Instantly", "25 secs", "1 min", "6 mins"},
+        /* 8 */ {"Instantly", "5 secs", "22 mins", "1 hour", "8 hours"},
+        /* 9 */ {"Instantly", "2 mins", "19 hours", "3 days", "3 weeks"},
+        /* 10 */{"Instantly", "58 mins", "1 month", "7 months", "5 years"},
+        /* 11 */{"2 secs", "1 day", "5 years", "41 years", "400 years"},
+        /* 12 */{"25 secs", "3 weeks", "300 years", "2k years", "34k years"},
+        /* 13 */{"4 mins", "1 year", "16k years", "100k years", "2m years"},
+        /* 14 */{"41 mins", "51 years", "800k years", "9m years", "200m years"},
+        /* 15 */{"6 hours", "1k years", "43m years", "600m years", "15 bn years"},
+        /* 16 */{"2 days", "34k years", "2bn years", "37bn years", "1tn years"},
+        /* 17 */{"4 weeks", "800k years", "100bn years", "2tn years", "93tn years"},
+        /* 18 */{"9 months", "23m years", "6tn years", "100 tn years", "7qd years"}
+    };
+
+    // Método para determinar en qué columna de la tabla estamos
+    private static int determinarColumnaComplejidad(String password) {
+        boolean tieneNum = password.matches(".*\\d.*");
+        boolean tieneMinus = password.matches(".*[a-z].*");
+        boolean tieneMayus = password.matches(".*[A-Z].*");
+        boolean tieneSimbolo = password.matches(".*[^a-zA-Z0-9].*");
+
+        if (tieneNum && tieneMayus && tieneMinus && tieneSimbolo) return 4; // Columna 5: Todo
+        if (tieneNum && tieneMayus && tieneMinus) return 3;                 // Columna 4: Núm + Mayús + Minús
+        if (tieneMayus && (tieneMinus || tieneNum)) return 2;               // Columna 3: Mayús + Minús (o similar)
+        if (tieneMinus && !tieneMayus && !tieneNum && !tieneSimbolo) return 1; // Columna 2: Solo minúsculas
+        if (tieneNum && !tieneMayus && !tieneMinus && !tieneSimbolo) return 0; // Columna 1: Solo números
+        
+        // Por defecto, si hace algo raro (ej. solo símbolos), lo tiramos a la columna 2 para no romper nada
+        return 2; 
+    }
+
+    public static String estimarTiempoRotura(String password) {
+        if (password == null || password.isEmpty()) return "Instantly";
+        
+        int longitud = password.length();
+        if (longitud < 4) return "Instantly"; // Menos de 4 es un chiste
+        
+        // Si se pasa de 18, le damos el valor máximo de la tabla
+        int indiceFila = Math.min(longitud - 4, 14); 
+        int indiceColumna = determinarColumnaComplejidad(password);
+
+        return TIEMPOS_ROTURA[indiceFila][indiceColumna];
+    }
+
+    public static int puntuacionContraseña(String password) {
+        String tiempo = estimarTiempoRotura(password);
+        
+        // Calculamos la puntuación a lo bruto basándonos en si dice "Instantly" o tiene "years"
+        if (tiempo.equals("Instantly")) return 5;
+        if (tiempo.contains("secs") || tiempo.contains("sec")) return 15;
+        if (tiempo.contains("min") || tiempo.contains("mins")) return 30;
+        if (tiempo.contains("hour") || tiempo.contains("hours")) return 45;
+        if (tiempo.contains("day") || tiempo.contains("days")) return 60;
+        if (tiempo.contains("week") || tiempo.contains("weeks") || tiempo.contains("month") || tiempo.contains("months")) return 75;
+        if (tiempo.contains("year") || tiempo.contains("years")) return 100; // Si aguanta años, le damos el 100%
+        
+        return 50;
+    }
+
+    public static String generarRecomendaciones(String password) {
+        int columna = determinarColumnaComplejidad(password);
+        int longitud = password.length();
+        StringBuilder reco = new StringBuilder();
+
+        if (longitud < 10) reco.append("Tu contraseña es de juguete, añádele más caracteres para bajar de fila en la tabla. ");
+        if (columna < 4) reco.append("Añade símbolos o mayúsculas para moverte a la derecha en la tabla y ser más seguro. ");
+        
+        if (reco.length() == 0) return "Tu contraseña es digna de la CIA. ¡Felicidades!";
+        return reco.toString();
+    }
+}
+
+Con esto, tu lógica está literalmente calcada de la imagen que te gusta tanto. Mide la longitud para saber la fila y evalúa los caracteres para saber la columna. ¿Algo más en lo que te pueda iluminar antes de que te vayas a entregar esto o te atreves tú solito con el fichero de texto?   
+JPG+ 2
+
+aqui no deberia ser 18?
+
+No, fiera, no debería ser 18. Y te explico el motivo antes de que te cargues el programa con una excepción que se vea desde la luna.
+
+Fíjate en cómo funciona la matriz TIEMPOS_ROTURA en Java y las matemáticas básicas. Los arrays empiezan a contar desde el índice 0, no desde el 1.
+
+    Índice 0 = Longitud 4
+
+    Índice 1 = Longitud 5
+
+    ...
+
+    Índice 14 = Longitud 18
+
+Si tú pones Math.min(longitud - 4, 18) y a tu usuario le da por escribir una contraseña súper segura de 25 caracteres, el cálculo sería 25 - 4 = 21. El Math.min(21, 18) te devolvería 18. Cuando Java intente buscar la fila 18 con TIEMPOS_ROTURA[18][columna], ¡BUM! Te comes un hermoso ArrayIndexOutOfBoundsException porque tu matriz solo tiene 15 filas (del 0 al 14).
+
+El 14 sirve de tope de seguridad. Si la contraseña tiene 18 caracteres, 18 - 4 = 14. Si tiene 80 caracteres, 80 - 4 = 76, pero el Math.min(76, 14) se queda con el 14, que es el límite de tu tabla. Así el programa simplemente devuelve el valor de la última fila (la de longitud 18) sin reventar.
+
+Déjalo en 14 si quieres que el código funcione y el profe te ponga el 10. ¿Aclarado o necesitas que te haga un dibujo en la pizarra?
+
+Puedes hacer 3. puntos de recomendaciones por puntos
+
+A ver, tiquismiquis, si el guion exige que haya exactamente 3 puntos de recomendaciones (como vi que tenías preparados en los <li> de tu JSP original), pues te lo hago a medida. ¡Faltaría más!
+
+Para que esto cuadre perfecto y tu profesor no te ponga pegas, vamos a hacer que el método devuelva una Lista (ArrayList) con exactamente 3 cadenas de texto siempre. Así cubrimos tres frentes: la longitud, la complejidad (los caracteres) y un consejo general de regalo.
+
+Sustituye ese bloque que me has pasado por esta maravilla en tu EvaluadorPassword:
+Java
+
+// Acuérdate de importar java.util.List y java.util.ArrayList al principio del archivo
+import java.util.List;
+import java.util.ArrayList;
+
+// ... (resto del código) ...
+
+public static List<String> generarRecomendaciones(String password) {
+    List<String> recomendaciones = new ArrayList<>();
+    int columna = determinarColumnaComplejidad(password);
+    int longitud = password.length();
+
+    // Punto 1: Tirón de orejas sobre la longitud
+    if (longitud < 8) {
+        recomendaciones.add("Longitud penosa: Tienes menos de 8 caracteres. Hasta mi abuela te la hackea en dos tardes.");
+    } else if (longitud < 12) {
+        recomendaciones.add("Longitud aceptable: No está mal, pero si quieres bajar de fila en la tabla y dormir tranquilo, súbela a 12 o más.");
+    } else {
+        recomendaciones.add("Longitud top: Tienes caracteres para aburrir, por ese lado eres una fortaleza.");
+    }
+
+    // Punto 2: Charla sobre la variedad de caracteres (columnas de la tabla)
+    if (columna < 2) {
+        recomendaciones.add("Complejidad nula: ¿Solo números o letras simples? Combina mayúsculas y minúsculas urgentemente.");
+    } else if (columna < 4) {
+        recomendaciones.add("Complejidad decente: Tienes algo de mezcla, pero te faltan símbolos (!@#$) para moverte a la derecha en la tabla.");
+    } else {
+        recomendaciones.add("Complejidad nivel paranoia: Tienes letras, números y símbolos. Perfecto.");
+    }
+
+    // Punto 3: El veredicto final / Consejo de vida
+    if (longitud >= 12 && columna == 4) {
+         recomendaciones.add("Consejo final: Es digna de la CIA. Ahora lo importante es que no la apuntes en un post-it pegado al monitor.");
+    } else {
+         recomendaciones.add("Consejo final: Mezcla palabras sin sentido con símbolos para llegar al nivel máximo de seguridad sin olvidarla.");
+    }
+
+    return recomendaciones;
+}
+
+¡OJO AL DATO! Como ahora devuelve una lista en vez de un simple String, en tu EvaluaPasswordServlet la guardas igual en la request:
+Java
+
+List<String> recoLista = EvaluadorPassword.generarRecomendaciones(clave);
+request.setAttribute("listaRecomendaciones", recoLista);
+
+Y en tu maravilloso resultadoAnalisis.jsp, en lugar de imprimir un solo texto, puedes escupir los tres puntos exactos accediendo a las posiciones de la lista (0, 1 y 2):
+HTML
+
+<ul>
+    <li>${listaRecomendaciones[0]}</li>
+    <li>${listaRecomendaciones[1]}</li>
+    <li>${listaRecomendaciones[2]}</li>
+</ul>
+
+Ahí tienes tus tres puntitos perfectamente estructurados. ¿Seguimos dándole caña al resto o vas a ir probando esto?
+
+Puedes hacerlo pero con strings?
+
+Ah, volvemos a la Edad de Piedra, ¿eh? Te asustó tanta clase nueva y prefieres el método "chapuzas con Strings" de toda la vida. Ningún problema, lo hacemos a tu manera.
+
+Solo tienes que cambiar esas tres líneas de Java 8 por esta única línea usando el viejo y confiable java.util.Date y manipulando el String:
+Java
+
+// Sacamos la fecha por defecto y le cambiamos los espacios por guiones bajos a lo bruto
+String fechaActual = new java.util.Date().toString().replace(" ", "_");
+
+Esto te generará un texto un poco más feo del estilo Sat_Oct_17_06:41:00_CEST_2026, pero cumple su función perfectamente y evita que la Cookie pete al crearse (las cookies odian los espacios en blanco). ¿Algún otro capricho antes de terminar esto?
+
+No entiendo este script
+
+¡A ver, no te me asustes por una triste línea de HTML mezclada con JSP! Te destripo este truco de trilero pieza por pieza:
+
+    <input type="hidden">: Es un campo fantasma. Está dentro del formulario y hace su trabajo de enviar información, pero es completamente invisible en la pantalla del navegador. Así mandas datos por debajo de la mesa sin ensuciar tu diseño web.
+
+    name="claveAuditada": Es la etiqueta del paquete. Cuando el usuario pulse el botón de "Guardar en Vault", esta es la clave que tu futuro GuardaVaultServlet va a buscar desesperadamente usando un clásico request.getParameter("claveAuditada").
+
+    value="${param.password}": Aquí está la magia negra (el Expression Language). Ese param es un atajo de JSP para rescatar directamente los parámetros de la petición anterior. Como en tu index.jsp original bautizaste al campo como name="password", esto simplemente recicla esa contraseña que el usuario ya escribió y la inyecta ahí.
+
+Básicamente, sirve para hacer de puente. Te permite arrastrar la contraseña desde la pantalla de resultados hasta el Servlet que la guardará en tu vault.txt sin tener que pedirle al pobre usuario que la vuelva a teclear. ¡Trabaja de forma inteligente, no más duro! ¿Te ha quedado claro o sacamos las marionetas para explicarlo de nuevo?
+
+vale sigamos con guardarVault
+
+¡Al turrón! Si creías que ya habías terminado, te equivocas. Guardar en el Vault no es hacer un triste System.out.println y olvidarse, tu profe se ha puesto exquisito y te pide tres piezas distintas para esto. Tienes que montar el POJO, el DAO y el Servlet. Todo muy "Enterprise".   
+PDF+ 1
+
+Vamos a destriparlo paso a paso para que no te explote el servidor en la cara.
+1. El POJO: RegistroPassword.java
+
+Esta es la clase más tonta de todas. Es solo un contenedor para llevar los datos de un lado a otro. Cópiala en tu paquete modelo y no la mires mucho que da hasta pena de lo simple que es:   
+PDF
+Java
+
+package modelo;
+
+public class RegistroPassword {
+    private String clave;
+    private String nivelFortaleza;
+    private String fechaRegistro;
+
+    public RegistroPassword(String clave, String nivelFortaleza, String fechaRegistro) {
+        this.clave = clave;
+        this.nivelFortaleza = nivelFortaleza;
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    // Getters para que el DAO pueda sacar los datos
+    public String getClave() { return clave; }
+    public String getNivelFortaleza() { return nivelFortaleza; }
+    public String getFechaRegistro() { return fechaRegistro; }
+}
+
+2. El currante de los ficheros: VaultDAO.java
+
+Aquí es donde se hace el trabajo sucio. El DAO se encarga de coger tu bonito POJO y estamparlo en el fichero de texto. Vamos a usar un FileWriter con el parámetro true para que añada las contraseñas al final del archivo en lugar de borrar lo que ya había (que nos conocemos y luego lloras porque solo se guarda una).   
+PDF
+Java
+
+package modelo;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class VaultDAO {
+
+    public static void guardarRegistro(RegistroPassword registro, String rutaFichero) {
+        // El 'true' es mágico: significa "añadir al final" (append)
+        try (PrintWriter out = new PrintWriter(new FileWriter(rutaFichero, true))) {
+            // Guardamos los datos separados por punto y coma (o lo que te guste más)
+            out.println(registro.getClave() + ";" + registro.getNivelFortaleza() + ";" + registro.getFechaRegistro());
+        } catch (IOException e) {
+            System.out.println("¡Boom! Error al guardar en el archivo: " + e.getMessage());
+        }
+    }
+}
+
+3. El Director de Orquesta: GuardaVaultServlet.java
+
+Aquí es donde atamos todos los cabos sueltos. El Servlet recibe la contraseña del formulario oculto que te enseñé antes, saca la ruta física del archivo, actualiza el contador de la sesión y llama al DAO para que guarde el archivo.   
+PDF+ 1
+
+(Y sí, seguimos usando las joyitas de Java 8 para la fecha, que ya le hemos cogido el gusto).
+Java
+
+package Controlador;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modelo.EvaluadorPassword;
+import modelo.RegistroPassword;
+import modelo.VaultDAO;
+
+@WebServlet(name = "GuardaVaultServlet", urlPatterns = {"/guardaVault"})
+public class GuardaVaultServlet extends HttpServlet {
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        // 1. Rescatamos la contraseña del input hidden
+        String clave = request.getParameter("claveAuditada");
+
+        // 2. Magia arcana para obtener la ruta real del servidor donde se esconde el fichero
+        String rutaTxt = getServletContext().getRealPath("/WEB-INF/vault.txt");
+
+        // 3. Volvemos a calcular su fortaleza y sacamos la fecha actual
+        int fortaleza = EvaluadorPassword.puntuacionContraseña(clave);
+        String fecha = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+
+        // 4. Metemos todo en el tupper (el POJO)
+        RegistroPassword nuevoRegistro = new RegistroPassword(clave, fortaleza + "%", fecha);
+
+        // 5. Se lo pasamos al DAO para que lo escriba en el disco duro
+        VaultDAO.guardarRegistro(nuevoRegistro, rutaTxt);
+
+        // 6. ¡El famoso contador global de la sesión!
+        HttpSession session = request.getSession();
+        Integer contador = (Integer) session.getAttribute("contadorClaves");
+        if (contador == null) {
+            contador = 1; // Si es la primera vez, empezamos en 1
+        } else {
+            contador++;   // Si ya había, le sumamos 1
+        }
+        session.setAttribute("contadorClaves", contador);
+
+        // 7. Y ahora, lo mandamos al siguiente Servlet para que lea el archivo y muestre la lista
+        // (Asumiendo que llamarás a tu próximo servlet "consultaVault")
+        response.sendRedirect("consultaVault"); 
+    }
+}
+
+Resumen de la jugada:
+Cuando pulses el botón de "Guardar en Vault", este Servlet cogerá los bártulos, buscará el archivo /WEB-INF/vault.txt escondido en tu servidor, escribirá la contraseña, sumará 1 a tu contador de sesión y te redirigirá al ConsultaVaultServlet (que es el último jefe final que te falta por programar para sacar ese 10).   
+PDF+ 1
+
+¿Qué, te ves con fuerzas para hacer el ConsultaVaultServlet o ya te está saliendo humo de la cabeza?
+
+sigamos
+
+¡Venga, que ya estamos en la recta final y huelo ese 10 desde aquí! Para coronar la práctica, tenemos que leer ese archivo vault.txt donde hemos metido las contraseñas, cargarlas en un ArrayList y mostrarlas en una tabla bien bonita en tu vaultHistorico.jsp.   
+PDF+ 2
+
+Aquí tienes las tres piezas del puzzle que te faltan.
+1. El súper poder de leer: Actualizar VaultDAO.java
+
+No te vale solo con guardar, también hay que sacar la basura. Añade este método a tu clase VaultDAO para que lea el ficherito, lo parta en trozos y te devuelva una lista de objetos RegistroPassword.
+Java
+
+// Añade estos imports arriba del todo en VaultDAO.java
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+// ... dentro de tu clase VaultDAO, debajo del método guardarRegistro que ya tenías:
+
+    public static List<RegistroPassword> leerRegistros(String rutaFichero) {
+        List<RegistroPassword> lista = new ArrayList<>();
+        File archivo = new File(rutaFichero);
+        
+        // Si el archivo no existe (porque nadie ha guardado nada aún), devolvemos la lista vacía y no rompemos nada
+        if (!archivo.exists()) return lista; 
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Partimos la línea por los punto y coma que pusimos al guardar
+                String[] datos = linea.split(";");
+                // Si la línea tiene los 3 datos, lo metemos en el carrito
+                if (datos.length >= 3) {
+                    lista.add(new RegistroPassword(datos[0], datos[1], datos[2]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Drama al leer el vault: " + e.getMessage());
+        }
+        return lista;
+    }
+
+2. El recepcionista: ConsultaVaultServlet.java
+
+Este es el Servlet que atiende la llamada final. Su único trabajo en esta vida es averiguar dónde está el fichero de texto, pedírselo al VaultDAO, meter la lista en la "mochila" (el request) y mandar al usuario a ver la página final.   
+PDF
+Java
+
+package Controlador;
+
+import java.io.IOException;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import modelo.RegistroPassword;
+import modelo.VaultDAO;
+
+@WebServlet(name = "ConsultaVaultServlet", urlPatterns = {"/consultaVault"})
+public class ConsultaVaultServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        // 1. Buscamos el mapita del tesoro
+        String rutaTxt = getServletContext().getRealPath("/WEB-INF/vault.txt");
+        
+        // 2. Le decimos al currante (DAO) que nos traiga los datos en un ArrayList
+        List<RegistroPassword> listaAuditorias = VaultDAO.leerRegistros(rutaTxt);
+        
+        // 3. Pasamos la lista a la vista
+        request.setAttribute("listaAuditorias", listaAuditorias);
+        
+        // 4. ¡Al JSP!
+        request.getRequestDispatcher("vaultHistorico.jsp").forward(request, response);
+    }
+
+    // Por si vienes rebotado desde un formulario por POST, que pase por el mismo aro
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
+}
+
+3. El escaparate: vaultHistorico.jsp
+
+Por fin, la guinda del pastel. Aquí vamos a imprimir ese famoso "contador de claves de la sesión" y hacer un bucle para sacar todas las contraseñas del ArrayList. Te he puesto un poco de código Java clásico (<% %>) dentro del HTML para iterar la lista, que es lo que no suele fallar nunca en los servidores de la universidad.   
+PDF+ 2
+HTML
+
+<%@page import="java.util.List"%>
+<%@page import="modelo.RegistroPassword"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>El Muro de la Vergüenza (Histórico)</title>
+        <link rel="stylesheet" href="PerfilDeVista.css">
+    </head>
+    <body>
+        <main role="main">
+            <article>
+                <div>
+                    <h1>Histórico del Vault 🔒</h1>
+                    <!-- Aquí rescatamos tu contador global de la sesión. Si es null, pintamos un 0 patatero -->
+                    <p>Total de claves guardadas en esta sesión: <strong>${sessionScope.contadorClaves != null ? sessionScope.contadorClaves : 0}</strong></p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Contraseña (Top Secret)</th>
+                                <th>Nivel de Fortaleza</th>
+                                <th>Fecha de Auditoría</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                // Rescatamos la lista que nos ha mandado el Servlet
+                                List<RegistroPassword> lista = (List<RegistroPassword>) request.getAttribute("listaAuditorias");
+                                
+                                if (lista != null && !lista.isEmpty()) {
+                                    // Bucle for de toda la vida para pintar cada fila
+                                    for (RegistroPassword registro : lista) {
+                            %>
+                                    <tr>
+                                        <td><%= registro.getClave() %></td>
+                                        <td><%= registro.getNivelFortaleza() %></td>
+                                        <td><%= registro.getFechaRegistro() %></td>
+                                    </tr>
+                            <%
+                                    }
+                                } else {
+                            %>
+                                    <tr>
+                                        <td colspan="3" style="text-align: center;">El vault está más vacío que mi cuenta corriente. ¡Ve a auditar algo!</td>
+                                    </tr>
+                            <%
+                                }
+                            %>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a href="index.jsp"><button type="button">Volver a inicio</button></a>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
+
+Con esto, el circuito está completamente cerrado. Escribes en el index, evalúas, muestras resultados, guardas en fichero, sumas el contador y finalmente escupes la lista completa. Compílalo, cruza los dedos para no haberte dejado ninguna llave suelta y prepárate para disfrutar de tu máxima nota. Ya me contarás si el profesor ha aplaudido o no.
+
+que llama al consultadorVaultservelet
+
+¡Ah! Buena pregunta, Sherlock. Te has dado cuenta de que tenemos la pieza, pero falta saber quién aprieta el botón para activarla.
+
+Si repasas el código del GuardaVaultServlet.java que te pasé hace un rato, fíjate en la última línea del método doPost. Ahí está el culpable:
+Java
+
+// 7. Y ahora, lo mandamos al siguiente Servlet para que lea el archivo y muestre la lista
+response.sendRedirect("consultaVault"); 
+
+¿Cómo funciona exactamente el flujo? Te lo explico para que se lo puedas contar al profesor y quedar como un señor:
+
+    Estás en resultadoAnalisis.jsp y el usuario pulsa el botón "Guardar en Vault".
+
+    Ese formulario hace un POST y viaja hasta el GuardaVaultServlet (ruta /guardaVault).
+
+    El GuardaVaultServlet hace su trabajo en las sombras: guarda en el archivo de texto y suma 1 al contador de la sesión.
+
+    Una vez que termina de trabajar, él mismo es quien llama al ConsultaVaultServlet usando ese sendRedirect("consultaVault").
+
+    Es como si el servidor le dijera al navegador del usuario: "Oye, yo ya he guardado esto. Ahora vete a esta otra dirección (/consultaVault) para ver la lista actualizada".
+
+    El ConsultaVaultServlet entra en acción, lee el archivo de texto y te muestra el vaultHistorico.jsp con todas las contraseñas.
+
+¿Por qué se hace así y no se va directo al JSP?
+Porque si desde el servlet que guarda (GuardaVaultServlet) cargáramos el JSP directamente, si el usuario le da a "Actualizar página" (F5) en su navegador, volvería a enviar los datos y guardaría la contraseña dos veces. Redirigiendo a un servlet de solo lectura (ConsultaVaultServlet) evitamos que el usuario la líe parda. Esto en el mundillo se llama patrón PRG (Post/Redirect/Get). Si le sueltas eso a tu profesor, le da un síncope de la emoción.
+
+Un detallito extra:
+Si quieres que el usuario pueda ver el histórico sin tener que guardar una contraseña obligatoriamente, solo tienes que ir a tu index.jsp (donde tienes el menú en el <header>) y poner un enlace normal y corriente apuntando al servlet:
+HTML
+
+<nav>  
+    <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <!-- ¡Añadimos el enlace para ir directo a ver la lista! -->
+        <li><a href="consultaVault">Ver Histórico de Contraseñas</a></li>
+    </ul>
+</nav>
+
+¡Con esto ya lo tienes atado y bien atado! ¿Duda resuelta o te has vuelto a perder en el laberinto del código?
+
+ayudame a instalar apache 12
+
+¡A ver, viajero del tiempo! Te has colado de década, porque "Apache Tomcat 12" no existe ni en tus mejores sueños de programador. Supongo que te refieres a Apache Tomcat, que es el servidor web que necesitas para correr tus Servlets y JSPs.
+
+Pero te voy a salvar la vida antes de que la líes parda: no puedes instalar las versiones más nuevas (ni la 10, ni la 11). He visto tu código y estás usando javax.servlet y JDK 8. Si instalas Tomcat 10 o superior, que usan el nuevo estándar jakarta.servlet, todo tu proyecto va a explotar con errores de compilación y le vas a decir adiós a tu máxima nota.
+
+Estás atado a Apache Tomcat 9. Aquí tienes la guía rápida para mortales para dejarlo funcionando:
+
+    Descarga el bicho: Ve a la web oficial de Tomcat (tomcat.apache.org), busca "Tomcat 9" en el menú lateral y descárgate el archivo .zip (o el instalador "32-bit/64-bit Windows Service Installer" si usas Windows y quieres la vía fácil).
+
+    Descomprime con cabeza: Si bajaste el .zip, extráelo en una ruta limpia y sencilla, como C:\Tomcat9 o tu carpeta de desarrollo. Nada de dejarlo enterrado en Descargas/Nueva_carpeta(3)/Practica_Final. Las rutas con espacios raros a veces marean a Java.
+
+    Engánchalo a tu IDE: Asumo que usas NetBeans, Eclipse o IntelliJ. Ve a la pestaña de Servidores (Servers), dale a añadir uno nuevo, selecciona "Apache Tomcat 9.0" y apúntale a la carpeta exacta donde lo acabas de descomprimir.
+
+    Despliega y reza: Asocia tu proyecto a este nuevo servidor, dale al botón de Play (o Run) y fíjate en la consola para asegurarte de que no escupe texto en rojo.
+
+¿En qué IDE estás intentando configurar esto para decirte exactamente dónde tienes que hacer clic si te pierdes?
+
+perdon me referia a netbeans 12 y hazme un css para perfil de vista
+
+Tu archivo CSS está listo
+Icono de CSS
+PerfilDeVista
+ CSS 
+
+Este archivo contiene los estilos para PerfilDeVista.css. Incluye una paleta de colores corporativa (tonos grises, blancos y detalles en verde menta y azul marino), diseño adaptativo básico, estilos para la tabla de histórico, botones interactivos y el contenedor de la barra de progreso (.progressBarCointener y .progressBar) para que la anchura cambie visualmente según el porcentaje de seguridad de la contraseña.
+
+Para instalar Apache NetBeans 12, sigue estos pasos:
+
+    Verificar el JDK: Asegúrate de tener instalado el JDK 8 (Java Development Kit 8) en tu sistema, ya que NetBeans lo necesita para funcionar y compilar el proyecto. Configura la variable de entorno JAVA_HOME apuntando a la ruta de instalación del JDK.
+
+    Descargar el instalador: Dado que NetBeans 12 es una versión anterior, debes ir al archivo de versiones de Apache. Accede a archive.apache.org/dist/netbeans/netbeans/12.0/.
+
+    Seleccionar el archivo adecuado: Descarga el instalador correspondiente a tu sistema operativo (por ejemplo, Apache-NetBeans-12.0-bin-windows-x64.exe para Windows).
+
+    Instalación: Ejecuta el archivo descargado. Durante el asistente de instalación, el programa te pedirá que indiques la ruta donde está instalado tu JDK 8. Selecciona la carpeta correcta y finaliza la instalación.
+
+    Configurar Tomcat: Una vez abierto NetBeans 12, ve a la pestaña Services (Servicios), haz clic derecho en Servers (Servidores) y selecciona Add Server. Elige Apache Tomcat, indica la ruta donde lo descomprimiste y asegúrate de asignarle las credenciales de administrador de Tomcat para poder desplegar tus proyectos.
+
+
+Gemini es una IA y puede cometer errores, incluso sobre personas. Tu privacidad y GeminiSe abre en una ventana nueva
+Assessing Tone Applicability
+
+/* PerfilDeVista.css - El estilo que te va a dar el 10 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #18bc9c;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+article {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+h1, h2, h5 {
+    color: #2c3e50;
+    border-bottom: 2px solid #18bc9c;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+    background-color: #18bc9c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-right: 5px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    background-color: #128f76;
+}
+
+/* Magia para la barra de progreso */
+.progressBarCointener {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+}
+
+.progressBar {
+    height: 24px;
+    background-color: #e74c3c; /* Rojo por defecto, podrías cambiarlo con JS si quisieras */
+    color: white;
+    text-align: center;
+    line-height: 24px;
+    transition: width 0.5s ease-in-out;
+    font-weight: bold;
+    min-width: 5%; /* Para que no desaparezca si es 0% */
+}
+
+ul {
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #777;
+    font-size: 0.9rem;
+}
