@@ -112,6 +112,7 @@ public class EvaluadorPassword {
          rec += "<li> 3. Mezcla palabras sin sentido con símbolos para llegar al nivel máximo de seguridad sin olvidarla. </li>";
         return rec;
     }
+        return null;
 
 }
 }
