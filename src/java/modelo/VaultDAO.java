@@ -2,12 +2,17 @@ package modelo;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,12 +27,11 @@ import java.util.List;
 public class VaultDAO {
 
     public static void guardarRegistro(RegistroPassword registro, String rutaFichero) {
-        try (PrintWriter out = new PrintWriter(new FileWriter(rutaFichero, true))) {
-            // Guardamos los datos separados por punto y coma
+        try (PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(rutaFichero, true), StandardCharsets.UTF_8))) {
             out.println(registro.getClave() + ";" + registro.getNivelFortaleza() + ";" + registro.getFechaRegistro());
         } catch (IOException e) {
-            System.out.println("Error al guardar en el archivo: " + e.getMessage());
-        }
+             System.out.println("¡Boom! Error al guardar: " + e.getMessage());
+            }
     }
 
     public static List<RegistroPassword> leerRegistros(String rutaFichero) {
@@ -35,8 +39,7 @@ public class VaultDAO {
         File archivo = new File(rutaFichero);
         if (!archivo.exists())
             return lista;
-
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(archivo), StandardCharsets.UTF_8))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(";");

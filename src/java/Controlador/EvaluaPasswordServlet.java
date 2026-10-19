@@ -33,11 +33,15 @@ public class EvaluaPasswordServlet extends HttpServlet {
         
         String clave = request.getParameter("password");
         
+        String nombreUsuario = request.getParameter("name");
+        if (nombreUsuario != null && !nombreUsuario.trim().isEmpty()) {
+            request.getSession().setAttribute("nombreUsuario", nombreUsuario);
+        }
+        
         int punt = EvaluadorPassword.puntuacionContraseña(clave);
         String tiempoRotura = EvaluadorPassword.estimarTiempoRotura(clave);
         String recomendaciones = EvaluadorPassword.generarRecomendaciones(clave);
-        
-        String fechaActual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+        String fechaActual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH:mm:ss"));
         
         Cookie cookieAuditoria = new Cookie("ultimaAuditoria", fechaActual);
         cookieAuditoria.setMaxAge(24 * 60 * 60); 

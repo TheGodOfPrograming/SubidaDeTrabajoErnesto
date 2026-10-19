@@ -1,16 +1,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Resultado de Análisis</title>
-        <meta name="description" content="Roughly 155 characters">
-        <link rel="stylesheet" href="PerfilDeVista.css">
-    </head>
-    <body>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Resultado de Análisis</title>
+    <link rel="stylesheet" href="PerfilDeVista.css">
+</head>
+<body>
         <main role="main">
             <article>
                 <div>
