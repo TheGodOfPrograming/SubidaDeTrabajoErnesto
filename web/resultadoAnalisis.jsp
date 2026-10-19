@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <title>Resultado de Análisis</title>
-    <link rel="stylesheet" href="PerfilDeVista.css">
+    <link rel="stylesheet" href="EstiloDelVista.css">
 </head>
 <body>
         <main role="main">

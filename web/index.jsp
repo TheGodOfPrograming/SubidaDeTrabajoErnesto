@@ -23,7 +23,7 @@
     <head>
         <meta charset="utf-8">
         <title>FORMULARIO DE AUDITORÍA</title>
-        <link rel="stylesheet" href="PerfilDeVista.css">
+        <link rel="stylesheet" href="EstiloDelVista.css">
     </head>
     <body>
         <main role="main">
@@ -58,7 +58,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td><input type="button" value="Solicitar clave segura" /></td>
+                                <td><input type="button" value="Solicitar clave segura" onclick="generarClaveMagica()" /></td>
                                 <td><input type="submit" value="Auditar Clave" /></td>
                                 <td><input type="reset" value="Borrar todo" /></td>
                             </tr>
@@ -70,5 +70,31 @@
         </main>
         <footer>
         </footer>
+        <script>
+            function generarClaveMagica() {
+
+                const letrasMayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                const letrasMinus = "abcdefghijklmnopqrstuvwxyz";
+                const numeros = "0123456789";
+                const simbolos = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+                
+               
+                const todosLosCaracteres = letrasMayus + letrasMinus + numeros + simbolos;
+                let claveGenerada = "";
+                
+               
+                for (let i = 0; i < 16; i++) {
+                    let aleatorio = Math.floor(Math.random() * todosLosCaracteres.length);
+                    claveGenerada += todosLosCaracteres.charAt(aleatorio);
+                }
+                
+               
+                let inputPass = document.getElementById("contraseña");
+                inputPass.value = claveGenerada;
+                
+                
+                inputPass.type = "text";
+            }
+        </script>
     </body>
 </html>

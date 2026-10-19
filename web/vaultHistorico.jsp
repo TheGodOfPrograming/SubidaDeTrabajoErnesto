@@ -7,7 +7,7 @@
             <head>
                 <meta charset="utf-8">
                 <title>Listado de Contraseñas</title>
-                <link rel="stylesheet" href="PerfilDeVista.css">
+                <link rel="stylesheet" href="EstiloDelVista.css">
             </head>
 
             <body>
